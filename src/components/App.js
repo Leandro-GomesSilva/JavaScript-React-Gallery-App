@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import '../css/App.css';
 import apiKey from '../config';
@@ -58,10 +58,11 @@ class App extends Component {
           <SearchForm onSearch={this.fetchData} />
           <Header />
           
-          { this.state.skylines.length * this.state.sunsets.length * this.state.dogs.length === 0 || this.state.loading?
+          { this.state.skylines.length * this.state.sunsets.length * this.state.dogs.length === 0 || this.state.loading ?
             <h2> Loading </h2>
             :
             <Switch>
+              <Route exact path="/"> <Redirect to="/skylines" /> </Route>
               <Route path="/skylines" component={ () => <PhotoContainer category="skylines" data={this.state.skylines} />} />
               <Route path="/sunsets" component={ () => <PhotoContainer category="sunsets" data={this.state.sunsets} />} />
               <Route path="/dogs" component={ () => <PhotoContainer category="dogs" data={this.state.dogs} />} />
