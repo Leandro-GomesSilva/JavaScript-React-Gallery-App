@@ -59,7 +59,7 @@ class App extends Component {
           <Header />
           
           { this.state.skylines.length * this.state.sunsets.length * this.state.dogs.length === 0 || this.state.loading ?
-            <h2> Loading </h2>
+            <h2 className="loading"> Loading... </h2>
             :
             <Switch>
               <Route exact path="/"> <Redirect to="/skylines" /> </Route>
