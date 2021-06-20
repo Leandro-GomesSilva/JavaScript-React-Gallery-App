@@ -1,7 +1,8 @@
+// Importing React related libraries and objects
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
-import '../css/App.css';
+// Importing API Key
 import apiKey from '../config';
 
 // App components
@@ -10,8 +11,10 @@ import Header from './Header';
 import PhotoContainer from './PhotoContainer';
 import NotFound from './NotFound';
 
+// The App Component is declared as a Class Component because it has State.
 class App extends Component {
-   
+  
+  // Defining the State variables
   state = {
     skylines: [],
     sunsets: [],
@@ -20,6 +23,7 @@ class App extends Component {
     loading: true,
   }
 
+  // This function Fetches Data from the Flickr API
   fetchData = (query, standardPictures) => {
     this.setState({ loading: true });
     
@@ -44,10 +48,6 @@ class App extends Component {
     const defaultSearchTags = ["skylines", "sunsets", "dogs"];
     defaultSearchTags.forEach( searchTag => this.fetchData(searchTag, true) ); 
     this.setState({ loading: false });
-    
-    if ( this.state.skylines.length * this.state.sunsets.length * this.state.dogs.length > 0 ) {
-      this.setState({ loading: false });
-    }  
   }
 
   render() { 
