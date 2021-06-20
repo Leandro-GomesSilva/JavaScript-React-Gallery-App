@@ -58,19 +58,16 @@ class App extends Component {
           <SearchForm onSearch={this.fetchData} />
           <Header />
           
-          { this.state.skylines.length * this.state.sunsets.length * this.state.dogs.length === 0 ?
+          { this.state.skylines.length * this.state.sunsets.length * this.state.dogs.length === 0 || this.state.loading?
             <h2> Loading </h2>
             :
-            this.state.loading?
-              <h2> Loading </h2>
-              :
-              <Switch>
-                <Route path="/skylines" component={ () => <PhotoContainer category="skylines" data={this.state.skylines} />} />
-                <Route path="/sunsets" component={ () => <PhotoContainer category="sunsets" data={this.state.sunsets} />} />
-                <Route path="/dogs" component={ () => <PhotoContainer category="dogs" data={this.state.dogs} />} />
-                <Route path="/search/:query" component={ ( {match} ) => <PhotoContainer category="" data={this.state.query} query={match.params.query} />} />
-                <Route component={NotFound} /> 
-              </Switch>  
+            <Switch>
+              <Route path="/skylines" component={ () => <PhotoContainer category="skylines" data={this.state.skylines} />} />
+              <Route path="/sunsets" component={ () => <PhotoContainer category="sunsets" data={this.state.sunsets} />} />
+              <Route path="/dogs" component={ () => <PhotoContainer category="dogs" data={this.state.dogs} />} />
+              <Route path="/search/:query" component={ ( {match} ) => <PhotoContainer category="" data={this.state.query} query={match.params.query} />} />
+              <Route component={NotFound} /> 
+            </Switch>  
           }
 
         </div>

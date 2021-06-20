@@ -11,8 +11,6 @@ const PhotoContainer = ( props ) => {
         return <Photo id={photo.id} server={photo.server} secret={photo.secret} title={photo.title} key={photo.id}/> 
     });
 
-    console.log(props.data.length);
-
     if (data.length !== 0) {
         return (
             <div className="photo-container">
