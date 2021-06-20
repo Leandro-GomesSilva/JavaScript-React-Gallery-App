@@ -20,6 +20,7 @@ class App extends Component {
     sunsets: [],
     dogs: [],
     query: [],
+    searchTag: "",
     loading: true,
   }
 
@@ -35,6 +36,7 @@ class App extends Component {
           :
           this.setState({ 
             query: responseData.photos.photo,
+            searchTag: query,
             loading: false
           })  
       )
@@ -66,7 +68,7 @@ class App extends Component {
               <Route path="/skylines" component={ () => <PhotoContainer category="skylines" data={this.state.skylines} />} />
               <Route path="/sunsets" component={ () => <PhotoContainer category="sunsets" data={this.state.sunsets} />} />
               <Route path="/dogs" component={ () => <PhotoContainer category="dogs" data={this.state.dogs} />} />
-              <Route path="/search/:query" component={ ( {match} ) => <PhotoContainer category="" data={this.state.query} query={match.params.query} />} />
+              <Route path="/search/:query" component={ ( {match} ) => <PhotoContainer category="" data={this.state.query} query={match.params.query} reFetchData={this.fetchData} searchTag={this.state.searchTag} />} />
               <Route component={NotFound} /> 
             </Switch>  
           }
