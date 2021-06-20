@@ -1,13 +1,11 @@
 import React from 'react';
 
 const Photo = (props) => {
-    
+    console.log(props.owner, props.id);
     return (
-        <ul>
-            <li>
-                <img src="https://farm5.staticflickr.com/4334/37032996241_4c16a9b530.jpg" alt="" />
-            </li>
-        </ul>
+        <li>
+            <img src={`https://live.staticflickr.com/${props.server}/${props.id}_${props.secret}.jpg`} alt={props.title} />
+        </li>
     );    
 }
 
