@@ -123,3 +123,44 @@ input {
     width: 100px;
   }
 }
+
+/* Custom-made CSS */
+
+body {
+  background-color: #e8f1f7;
+}
+
+div .container {
+  background-color: rgba(255, 255, 255, 0.5);;
+  padding: 50px;
+  border-radius: 15px;
+  box-shadow: 10px 10px 20px rgba(50, 50, 50, 0.5);
+  border-top: 1px solid rgba(50, 50, 50, 0.5);
+  border-left: 1px solid rgba(50, 50, 50, 0.5);
+  
+}
+
+.not-found h3 {
+  color: #bd434e;
+  transition: 0.5s ease-out;
+}
+
+ul:hover .not-found h3 {
+  transform: scale(1.2);
+  transition: 0.5s ease-out;
+}
+
+.photo-container li {
+  border-radius: 5px;
+  border: 1px solid rgba(50, 50, 50, 0.9);
+}
+
+.search-form input:hover {
+  border-color: rgba(50, 50, 50, 0.5);
+  transition: 0.3s ease-out;
+}
+
+.search-form input:focus {
+  border-color: #438bbd;
+  transition: 0.3s ease-out;
+}
