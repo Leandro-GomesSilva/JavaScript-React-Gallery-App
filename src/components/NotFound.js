@@ -1,7 +1,6 @@
 import React from 'react';
 
 const NotFound = () => {
-
     return (
         <ul>
             <li className="not-found">

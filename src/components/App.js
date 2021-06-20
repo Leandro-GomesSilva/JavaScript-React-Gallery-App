@@ -13,27 +13,24 @@ import NotFound from './NotFound';
 class App extends Component {
    
   state = {
-    photos: []
+    skylines: [],
+    sunsets: [],
+    food: []
   }
 
   // When the component mount, the API data will be fetched using the Fetch API.
   componentDidMount() {
-    const defaultSearchTags = ["Football", "Guitars", "Computers"]  
+    const defaultSearchTags = ["skylines", "sunsets", "food"]
     defaultSearchTags.forEach( (searchTag) => {    
       
       fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${searchTag}&per_page=24&format=json&nojsoncallback=1`)
         .then(response => response.json())
-        .then(responseData => {
-          let array = responseData.photos.photo;
-          return array;  
-        })
-        .then(array => {
-          this.setState( { photos: array } )
-        })
+        .then(responseData => 
+          this.setState( { [searchTag]: responseData.photos.photo } ) 
+        )
         .catch( error => {
           console.log("An error happened when fetching the data.", error);
         });
-
     });
   }
 
@@ -47,9 +44,9 @@ class App extends Component {
           <Header />
                   
         <Switch>
-          <Route path="/cats" render={ () => <PhotoContainer category="cats" data={this.state.photos} />}/>
-          <Route path="/dogs" render={ () => <PhotoContainer category="dogs" data={this.state.photos} />} />
-          <Route path="/computers" render={ () => <PhotoContainer category="computers" data={this.state.photos} />} />
+          <Route path="/skylines" render={ () => <PhotoContainer category="skylines" data={this.state.skylines} />}/>
+          <Route path="/sunsets" render={ () => <PhotoContainer category="sunsets" data={this.state.sunsets} />} />
+          <Route path="/food" render={ () => <PhotoContainer category="food" data={this.state.food} />} />
           <Route component={NotFound} />
         </Switch>
 
