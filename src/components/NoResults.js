@@ -1,5 +1,11 @@
 import React from 'react';
 
+/*
+ *  This component renders the 'No Results Found' message. 
+ *  It is a stateless functional component.
+ * 
+ */
+
 const NoResults = () => {
     return (
         <ul>

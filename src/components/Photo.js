@@ -1,5 +1,12 @@
 import React from 'react';
 
+/*
+ *  This component renders one photo/picture element.
+ *  It is a stateless functional component. 
+ *  Data relative to each single picture is passed to it via props from the PhotoContainer component.
+ * 
+ */
+
 const Photo = (props) => {
     return (
         <li>

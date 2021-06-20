@@ -1,5 +1,12 @@
+// Importing React related libraries and objects
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+
+/*
+ *  SearchForm Component
+ *  This is a stateful class component. It renders the Search Form and handle its input field and submit functions, fetching data accordingly.
+ * 
+ */
 
 class SearchForm extends Component {
 
@@ -7,10 +14,12 @@ class SearchForm extends Component {
         searchText: ''
     }
     
+    // Updates the searchText State 'on Change' on the input field
     updateInputState = (e) => {
         this.setState({ searchText: e.target.value });
     }
 
+    // Prevents default on submit, fetches the data based on the input search text, writes the corresponding path and pushes it to the history.
     handleSubmitForm = (e) => {
         e.preventDefault();
         this.props.onSearch(this.state.searchText, false);
@@ -19,6 +28,7 @@ class SearchForm extends Component {
         this.props.history.push(path);
     }
     
+    // Renders the form element
     render() {
         return (
             <form className="search-form" onSubmit={this.handleSubmitForm}>

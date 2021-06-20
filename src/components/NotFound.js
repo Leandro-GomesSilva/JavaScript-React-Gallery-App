@@ -1,6 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+/*
+ *  This component renders the '404 Not Found' message, in case no match between URL and Routes is found.
+ *  It is a stateless functional component.
+ * 
+ */
+
 const NotFound = () => {
     return (
         <ul>
